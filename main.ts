@@ -22,7 +22,7 @@ game.onUpdate(function () {
     }
 
     // Check if player is touching NPC
-    if (sprites.readProperty(player, sprites.SpriteProperty.OverlappingSprites) == npc) {
+    if (sprites.overlaps(player, npc)) {
         if (controller.A.isPressed()) {
             talkingToNpc = true
             inMenu = true
@@ -90,25 +90,25 @@ function showMenu() {
         scene.setBackgroundColor(1)
         
         // Title
-        screen.printString("== SELECT AREA ==", 20, 10, image.font5)
+        screen.print("== SELECT AREA ==", 20, 10)
         
         // Display all 3 areas
-        screen.printString("Area 1: Forest", 20, 30, image.font5)
-        screen.printString("Area 2: Castle", 20, 45, image.font5)
-        screen.printString("Area 3: Cave", 20, 60, image.font5)
+        screen.print("Area 1: Forest", 20, 30)
+        screen.print("Area 2: Castle", 20, 45)
+        screen.print("Area 3: Cave", 20, 60)
         
         // Show selector arrow
         if (selectedArea == 0) {
-            screen.printString(">", 10, 30, image.font5)
+            screen.print(">", 10, 30)
         } else if (selectedArea == 1) {
-            screen.printString(">", 10, 45, image.font5)
+            screen.print(">", 10, 45)
         } else if (selectedArea == 2) {
-            screen.printString(">", 10, 60, image.font5)
+            screen.print(">", 10, 60)
         }
         
         // Show controls
-        screen.printString("UP/DOWN to select", 20, 80, image.font5)
-        screen.printString("A to enter, B to exit", 20, 95, image.font5)
+        screen.print("UP/DOWN to select", 20, 80)
+        screen.print("A to enter, B to exit", 20, 95)
         
         // Handle input
         if (controller.up.isPressed()) {
@@ -158,9 +158,9 @@ function goToForest() {
     let inArea = true
     while (inArea) {
         screen.clearScreen()
-        screen.printString("FOREST", 30, 20, image.font8)
-        screen.printString("A peaceful forest", 20, 40, image.font5)
-        screen.printString("Press A to return", 20, 80, image.font5)
+        screen.print("FOREST", 30, 20)
+        screen.print("A peaceful forest", 20, 40)
+        screen.print("Press A to return", 20, 80)
         
         if (controller.A.isPressed()) {
             inArea = false
@@ -179,9 +179,9 @@ function goToCastle() {
     let inArea = true
     while (inArea) {
         screen.clearScreen()
-        screen.printString("CASTLE", 30, 20, image.font8)
-        screen.printString("A grand castle", 20, 40, image.font5)
-        screen.printString("Press A to return", 20, 80, image.font5)
+        screen.print("CASTLE", 30, 20)
+        screen.print("A grand castle", 20, 40)
+        screen.print("Press A to return", 20, 80)
         
         if (controller.A.isPressed()) {
             inArea = false
@@ -200,9 +200,9 @@ function goToCave() {
     let inArea = true
     while (inArea) {
         screen.clearScreen()
-        screen.printString("CAVE", 30, 20, image.font8)
-        screen.printString("A dark cave", 20, 40, image.font5)
-        screen.printString("Press A to return", 20, 80, image.font5)
+        screen.print("CAVE", 30, 20)
+        screen.print("A dark cave", 20, 40)
+        screen.print("Press A to return", 20, 80)
         
         if (controller.A.isPressed()) {
             inArea = false
